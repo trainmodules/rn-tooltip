@@ -126,6 +126,7 @@ class Tooltip extends React.Component<Props, State> {
           position: 'absolute',
           top: pastMiddleLine ? yOffset - 13 : yOffset + elementHeight - 2,
           left: xOffset + elementWidth / 2 - 7.5,
+          zIndex: 99,
         }}
       >
         <Triangle
