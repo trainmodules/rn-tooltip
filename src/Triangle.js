@@ -9,12 +9,23 @@ type Props = {
 };
 
 const Triangle = ({ style, isDown }: Props) => (
-  <View style={[styles.triangle, style, isDown ? styles.down : {}]} />
+  <View style={[isDown ? styles.down : {}]}>
+    <View style={styles.square} />
+    <View style={styles.triangle} />
+  </View>
 );
 
 const styles = StyleSheet.create({
   down: {
     transform: [{ rotate: '180deg' }],
+  },
+  square: {
+    backgroundColor: 'white',
+    height: 10,
+    position: 'absolute',
+    bottom: -8,
+    width: 24,
+    zIndex: 99,
   },
   triangle: {
     width: 0,
@@ -23,10 +34,15 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     borderLeftWidth: 8,
     borderRightWidth: 8,
-    borderBottomWidth: 15,
+    borderBottomWidth: 16,
     borderLeftColor: 'transparent',
     borderRightColor: 'transparent',
     borderBottomColor: 'white',
+    shadowOpacity: 0.25,
+    shadowRadius: 3,
+    shadowColor: '#363636',
+    shadowOffset: { screenHeight: 2, screenWidth: 2 },
+    zIndex: 1,
   },
 });
 
